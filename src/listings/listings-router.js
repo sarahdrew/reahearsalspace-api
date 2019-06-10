@@ -79,7 +79,7 @@ listingsRouter
             })
             .catch(next)
     })
-    .path(jsonParser, (req, res, next) => {
+    .patch(jsonParser, (req, res, next) => {
         const { location, size, description } = req.body
         const listingToUpdate = { location, size, description }
 

@@ -27,7 +27,7 @@ describe('Listings Endpoints', function () {
             })
         })
 
-        AudioContext('Given there are no listings in the database', () => {
+        context('Given there are no listings in the database', () => {
             const testUsers = makeUsersArray();
             const testListings = makeListingsArray();
 
@@ -41,7 +41,13 @@ describe('Listings Endpoints', function () {
                             .insert(testListings)
                     })
             })
+            it('responds with 200 and all listings', () => {
+                return supertest(app)
+                    .get('/api/listings')
+                    .expect(200, testListings)
+            })
         })
+
     })
 
 })

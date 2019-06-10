@@ -12,7 +12,6 @@ const app = express();
 
 const morganOption = NODE_ENV === "production" ? "tiny" : "common";
 
-const cors = require('cors');
 const { CLIENT_ORIGIN } = require('./config');
 
 app.use(
@@ -27,8 +26,8 @@ app.use(helmet());
 
 app.use('api/listings', listingsRouter)
 
-app.get("/", (req, res) => {
-  res.send("Hello, world!");
+app.get('/', (req, res) => {
+  res.send('Hello, world, here is the up and running server!');
 });
 
 app.use(function errorHandler(error, req, res, next) {
