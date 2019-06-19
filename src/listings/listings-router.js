@@ -17,7 +17,7 @@ listingsRouter
     .route('/')
     .get((req, res, next) => {
         const knexInstance = req.app.get('db')
-        ListingsService.getAllListings(knexInstance)
+        ListingsService.getAllArticles(knexInstance)
             .then(listings => {
                 res.json(listings.map(serializeListing))
             })
@@ -33,7 +33,7 @@ listingsRouter
                     error: { message: `Missing ${key} in request body` }
                 })
 
-        newListing.creator = creator
+        //newListing.creator = creator
         ListingsService.insertListing(
             req.app.get('db'),
             newListing

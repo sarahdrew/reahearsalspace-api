@@ -24,7 +24,7 @@ app.use(morgan(morganOption));
 app.use(cors());
 app.use(helmet());
 
-app.use('api/listings', listingsRouter)
+app.use('/api/listings', listingsRouter)
 
 app.get('/', (req, res) => {
   res.send('Hello, world, here is the up and running server!');
