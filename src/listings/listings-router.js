@@ -26,6 +26,7 @@ listingsRouter
     .post(jsonParser, (req, res, next) => {
         const { location, size, description } = req.body
         const newListing = { location, size, description }
+        console.log(newListing);
 
         for (const [key, value] of Object.entries(newListing))
             if (value == null)
