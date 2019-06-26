@@ -75,7 +75,7 @@ listingsRouter
             req.app.get('db'),
             req.params.listing_id
         )
-            .then(numRowsAffected => {
+            .then(() => {
                 res.status(204).end()
             })
             .catch(next)
