@@ -17,7 +17,7 @@ listingsRouter
     .route('/')
     .get((req, res, next) => {
         const knexInstance = req.app.get('db')
-        ListingsService.getAllArticles(knexInstance)
+        ListingsService.getAllListings(knexInstance)
             .then(listings => {
                 res.json(listings.map(serializeListing))
             })

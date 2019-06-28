@@ -1,7 +1,7 @@
 //this is the file to store ListingsService object and put methods on the object that stores the transactions
 
 const ListingsService = {
-    getAllArticles(knex) {
+    getAllListings(knex) {
         return knex.select('*').from('rehearsalspace_listings')
     },
     insertListing(knex, newListing) {
