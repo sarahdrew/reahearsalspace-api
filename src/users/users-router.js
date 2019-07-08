@@ -20,7 +20,7 @@ usersRouter
                 })
 
             }
-            res.send('ok')
+            // res.send('ok')
         }
 
         const passwordError = UsersService.validatePassword(password);
@@ -34,10 +34,11 @@ usersRouter
             user_name
         )
             .then(hasUserWithUserName => {
+                console.log('hasUserWithUserName', hasUserWithUserName)
                 if (hasUserWithUserName)
                     return res.status(400).json({ error: `Username already taken` })
 
-                res.send('ok')
+                //res.send('ok')
             })
 
 

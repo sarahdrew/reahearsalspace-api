@@ -1,6 +1,7 @@
 const AuthService = require("../auth/auth-service");
 
 function requireAuth(req, res, next) {
+    console.log('getting in here !! ???')
     const authToken = req.get("Authorization") || "";
     let bearerToken;
     if (!authToken.toLowerCase().startsWith("bearer ")) {
@@ -10,7 +11,6 @@ function requireAuth(req, res, next) {
     }
     try {
         const payload = AuthService.verifyJwt(bearerToken);
-
         AuthService.getUserWithUserName(req.app.get("db"), payload.sub)
             .then(user => {
                 if (!user)

@@ -4,7 +4,7 @@ const config = require('../config')
 
 const AuthService = {
     getUserWithUserName(db, user_name) {
-        return db('blogful_users')
+        return db('rehearsalspace_users')
             .where({ user_name })
             .first()
     },
@@ -14,7 +14,7 @@ const AuthService = {
     createJwt(subject, payload) {
         return jwt.sign(payload, config.JWT_SECRET, {
             subject,
-            expiresIn: config.JWT_EXPIRY,
+            expiresIn: 60 * 60 * 2,
             algorithm: 'HS256',
         })
     },
@@ -24,9 +24,12 @@ const AuthService = {
             .split(":");
     },
     getUserwithUserName(db, user_name) {
-        return db("thingful_users")
+        return db("rehearsalspace_users")
             .where({ user_name })
             .first();
+    },
+    verifyJwt(token) {
+        return jwt.verify(token, config.JWT_SECRET);
     }
 };
 

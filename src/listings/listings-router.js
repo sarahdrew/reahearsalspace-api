@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express')
 const xss = require('xss')
 const ListingsService = require('./listings-service');
+const JwtMiddleware = require('../middleware/jwt-auth');
 
 const listingsRouter = express.Router();
 const jsonParser = express.json();
@@ -23,7 +24,7 @@ listingsRouter
             })
             .catch(next)
     })
-    .post(jsonParser, (req, res, next) => {
+    .post(jsonParser, JwtMiddleware.requireAuth, (req, res, next) => {
         const { location, size, description } = req.body
         const newListing = { location, size, description }
         console.log(newListing);
