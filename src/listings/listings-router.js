@@ -12,6 +12,7 @@ const serializeListing = listing => ({
     location: listing.location,
     size: listing.size,
     description: listing.description,
+    //amenities: listings.amenities,
 })
 
 listingsRouter
@@ -20,13 +21,14 @@ listingsRouter
         const knexInstance = req.app.get('db')
         ListingsService.getAllListings(knexInstance)
             .then(listings => {
+                // console.log(`amenities`, amenities)
                 res.json(listings.map(serializeListing))
             })
             .catch(next)
     })
     .post(jsonParser, JwtMiddleware.requireAuth, (req, res, next) => {
-        const { location, size, description } = req.body
-        const newListing = { location, size, description }
+        const { location, size, description, amenities } = req.body
+        const newListing = { location, size, description, amenities }
         console.log(newListing);
 
         for (const [key, value] of Object.entries(newListing))
