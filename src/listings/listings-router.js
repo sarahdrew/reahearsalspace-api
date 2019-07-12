@@ -12,7 +12,7 @@ const serializeListing = listing => ({
     location: listing.location,
     size: listing.size,
     description: listing.description,
-    //amenities: listings.amenities,
+    amenities: listing.amenities,
 })
 
 listingsRouter
@@ -28,8 +28,20 @@ listingsRouter
     })
     .post(jsonParser, JwtMiddleware.requireAuth, (req, res, next) => {
         const { location, size, description, amenities } = req.body
-        const newListing = { location, size, description, amenities }
+        const newListing = { location, size, description }
         console.log(newListing);
+
+        const amenityList = [];
+        for (const amenity in amenities) {
+            if (amenities.hasOwnProperty(amenity)) {
+                const hasAmenity = amenities[amenity];
+                if (hasAmenity) {
+                    amenityList.push(amenity);
+                }
+            }
+        }
+
+        newListing.amenities = amenityList.join(',');
 
         for (const [key, value] of Object.entries(newListing))
             if (value == null)
