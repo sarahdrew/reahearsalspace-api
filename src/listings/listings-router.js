@@ -21,7 +21,7 @@ listingsRouter
         const knexInstance = req.app.get('db')
         ListingsService.getAllListings(knexInstance)
             .then(listings => {
-                // console.log(`amenities`, amenities)
+
                 res.json(listings.map(serializeListing))
             })
             .catch(next)
@@ -49,7 +49,7 @@ listingsRouter
                     error: { message: `Missing ${key} in request body` }
                 })
 
-        //newListing.creator = creator
+
         ListingsService.insertListing(
             req.app.get('db'),
             newListing
