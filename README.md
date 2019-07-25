@@ -1,26 +1,35 @@
-# Express Boilerplate!
+# RehearsalSpace
 
-This is a boilerplate project used for starting new projects.
+### Link to [live app](https://rehearsalspace-client-mt0yt324q.now.sh/) 
+Technology used: React, CSS, Node, Express, PostgreSQL
 
-## Set up
 
-Complete the following steps to start a new project (NEW-PROJECT-NAME):
 
-1. Clone this repository to your local machine `git clone BOILERPLATE-URL NEW-PROJECTS-NAME`
-2. `cd` into the cloned repository
-3. Make a fresh start of the git history for this project with `rm -rf .git && git init`
-4. Install the node dependencies `npm install`
-5. Move the example Environment file to `.env` that will be ignored by git and read by the express server `mv example.env .env`
-6. Edit the contents of the `package.json` to use NEW-PROJECT-NAME instead of `"name": "express-boilerplate",`
+## Summary
+Finding a place to rehearse isn't always easy for performers who aren't affiliated with a theater. RehearsalSpace was created with independent performers in mind. This app allows users to view listings of available spaces to use for performance rehearsals. If you've got a place for performers to use, this is the site to list it.
 
-## Scripts
 
-Start the application `npm start`
+## API
 
-Start nodemon for the application `npm run dev`
+``` /api
+.
+├── /auth
+│   └── POST
+│       ├── /login
+│       └── /refresh
+├── /listings
+│   └── GET /
+│   |   └── /:listing_id
+│   └── POST
+│       └── /:id
+├── /users
+│   └── GET
+│       └── /
+│   └── POST
+│       └── /
+```
 
-Run the tests `npm test`
+[Repo for Client Side](https://github.com/sarahdrew/rehearsalspace-client)
 
-## Deploying
 
-When your new project is ready for deployment, add a new Heroku application with `heroku create`. This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's master branch.
+
