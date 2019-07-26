@@ -2,7 +2,7 @@
 
 ![Logo](https://github.com/sarahdrew/rehearsalspace-client/blob/master/Logo.png?raw=true)
 
-### Link to [live app](https://rehearsalspace-client-mt0yt324q.now.sh/) 
+### Link to [live app](https://rehearsalspace-client-2hcwgvght.now.sh/) 
 
 ## Technology used 
 React, CSS, Node, Express, PostgreSQL
